@@ -7,7 +7,11 @@ from sklearn.metrics import accuracy_score,confusion_matrix
 import matplotlib.pyplot as plt 
 import seaborn as sns
 
-mlflow.set_tracking_uri("https://127.0.0.1:5000")
+import dagshub
+dagshub.init(repo_owner='ashishshukla888', repo_name='dagsup-demo', mlflow=True)
+
+
+mlflow.set_tracking_uri("https://dagshub.com/ashishshukla888/dagsup-demo.mlflow")
 
 #load data
 iris = load_iris()
@@ -48,7 +52,7 @@ with mlflow.start_run():
     mlflow.log_artifact("cm.png")
     # model log
     mlflow.sklearn.log_model(dt,"decesion tree")
-    
+
 
     mlflow.log_artifact(__file__)
 

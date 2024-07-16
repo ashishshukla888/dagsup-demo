@@ -1,0 +1,9 @@
+https://dagshub.com/ashishshukla888/dagsup-demo.mlflow
+
+import dagshub
+dagshub.init(repo_owner='ashishshukla888', repo_name='dagsup-demo', mlflow=True)
+
+import mlflow
+with mlflow.start_run():
+  mlflow.log_param('parameter name', 'value')
+  mlflow.log_metric('metric name', 1)
